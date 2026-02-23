@@ -37,9 +37,9 @@ async def main():
         geoip=True,
 
         # proxy={
-        #     'server': '',
-        #     'username': '',
-        #     'password': '',
+        #     'server': 'p.webshare.io:80',
+        #     'username': 'qdkqdkdm-rotate',
+        #     'password': '3svuyjp6xuje',
         # }
     ) as browser:
         # page = browser.pages[-1] if browser.pages else 

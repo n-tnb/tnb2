@@ -2,8 +2,8 @@ const { connect } = require("puppeteer-real-browser");
 
 const MINUTOS = 10;
 const URL = process.env.URL;
-const PROXY = process.env.PROXY || false;
-const ADDRESS = process.env.ADDRESS.split("\n");
+const PROXY = JSON.parse(process.env.PROXY) || false;
+const ADDRESS = JSON.parse(process.env.ADDRESS.split("\n"));
 
 const randomIndex = Math.floor(Math.random() * PROXY.length);
 
@@ -59,3 +59,4 @@ const run = async () => {
 };
 
 run();
+

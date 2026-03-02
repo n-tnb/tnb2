@@ -4,8 +4,7 @@ const MINUTOS = 10;
 const URL = process.env.URL;
 const PROXY = JSON.parse(process.env.PROXY) || false;
 const ADDRESS = process.env.ADDRESS.split("\n");
-
-const randomIndex = Math.floor(Math.random() * PROXY.length);
+const INDEX = 1
 
 const run = async () => {
   const { page, browser } = await connect({
@@ -13,7 +12,7 @@ const run = async () => {
     turnstile: true,
     headless: false,
     // disableXvfb: true,
-    proxy: PROXY[randomIndex],
+    proxy: PROXY[INDEX],
     customConfig: {},
     connectOption: {
       defaultViewport: null,
@@ -30,11 +29,11 @@ const run = async () => {
 
     await new Promise((r) => setTimeout(r, 5000));
 
-    await page.type("#address", ADDRESS[randomIndex]);
+    await page.type("#address", ADDRESS[INDEX]);
     const value = await page.$eval("#address", (el) => el.value);
-    if (value !== ADDRESS[randomIndex]) {
+    if (value !== ADDRESS[INDEX]) {
       await page.$eval("#address", (el) => (el.value = ""));
-      await page.type("#address", ADDRESS[randomIndex]);
+      await page.type("#address", ADDRESS[INDEX]);
     }
 
     const tempoTotal = MINUTOS * 60 * 1000;
@@ -60,6 +59,7 @@ const run = async () => {
 };
 
 run();
+
 
 
 

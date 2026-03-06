@@ -12,8 +12,7 @@ const run = async () => {
     turnstile: true,
     headless: false,
     // disableXvfb: true,
-    //PROXY[INDEX]
-    proxy: false,
+    // proxy: false,
     customConfig: {},
     connectOption: {
       defaultViewport: null,
@@ -60,6 +59,7 @@ const run = async () => {
 };
 
 run();
+
 
 
 
